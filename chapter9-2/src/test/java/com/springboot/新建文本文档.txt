@@ -1,0 +1,3 @@
+index=your_index_name ("error" OR "exception")
+| rex field=_raw "^(?<line1>.*)\r?\n(?:error|exception)\r?\n(?<line3>.*)$"
+| search NOT line1="not find record" AND NOT line3="not find record"
